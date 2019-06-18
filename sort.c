@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 #include "stack.h"
 #include "funcs.h"
 #include "funcs.c"
-#include "sort.h"
 
 void stack_concatenate(stack** head_first, stack** head_second) {
     stack* temp = *head_second, *temp_empty;

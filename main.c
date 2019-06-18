@@ -1,7 +1,4 @@
-#include "funcs.h"
-#include "funcs.c"
-#include "stack.h"
-#include "sort.h"
+#include "sort.c"
 
 int main() {
     int info, temp, temp_1;
@@ -26,23 +23,51 @@ int main() {
                 scanf("%d", &info);
                 element_push(&head, info);
             }
-            if(temp_1 == 2){
+            else if(temp_1 == 2){
                 printf("enter element info: ");
                 scanf("%d", &info);
                 element_push(&head_2, info);
             }
         }
         else if(temp == 2) {
-            element_pop(&head);
+            printf("which stack? [1/2]: ");
+            scanf("%d", &temp_1);
+            if(temp_1 == 1){
+                element_pop(&head);
+            }
+            else if(temp_1 == 2){
+                element_pop(&head_2);
+            }
         }
         else if(temp == 3) {
-            stack_print(head);
+            printf("which stack? [1/2]: ");
+            scanf("%d", &temp_1);
+            if(temp_1 == 1){
+                stack_print(head);
+            }
+            else if(temp_1 == 2) {
+                stack_print(head_2);
+            }
         }
         else if(temp == 4) {
-            printf("%d\n", stack_size(head));
+            printf("which stack? [1/2]: ");
+            scanf("%d", &temp_1);
+            if(temp_1 == 1){
+                printf("%d\n", stack_size(head));
+            }
+            else if(temp_1 == 2) {
+                printf("%d\n", stack_size(head_2));
+            }
         }
         else if(temp == 5) {
-            stack_delete(&head);
+            printf("which stack? [1/2]: ");
+            scanf("%d", &temp_1);
+            if(temp_1 == 1){
+                stack_delete(&head);
+            }
+            else if(temp_1 == 2) {
+                stack_delete(&head_2);
+            }
         }
         else if(temp == 6) {
             stack_concatenate(&head, &head_2);
