@@ -6,21 +6,21 @@ int main() {
     int info, temp;
     printf("enter info of first elem: ");
     scanf("%d", &info);
-    stack* root;
-    stack_init(&root, info);
+    stack* head;
+    stack_init(&head, info);
     while(temp != 4) {
-        printf("\n1 - push, 2 - pop, 3 - print stack, 4 - exit\n");
+        printf("1 - push, 2 - pop, 3 - print stack, 4 - exit\n");
         scanf("%d", &temp);
         if(temp == 1) {
             printf("enter element info: ");
             scanf("%d", &info);
-            element_push(root, info);
+            element_push(&head, info);
         }
         else if(temp == 2) {
-            element_pop(root);
+            element_pop(&head);
         }
         else if(temp == 3) {
-            stack_print(root);
+            stack_print(head);
         }
         else {
             return 0;
