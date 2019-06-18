@@ -1,13 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
 #include "stack.h"
 
-stack* stack_init(stack** head, int info) {
+void stack_init(stack** head, int info) {
     stack* temp = (stack*)(malloc(sizeof(stack)));
     temp->info = info;
     temp->next = NULL;
     *head = temp;
-    return temp;
+}
+
+bool stack_underflow(stack* head) {
+    return (head == NULL);
+}
+
+size_t stack_size(stack* head) {
+    size_t size = 0;
+    stack* temp = head;
+    while(temp->next != NULL) {
+        size++;
+        temp = temp->next;
+    }
+    if(temp->next == NULL) {
+        size++;
+    }
+    return size;
+}
+
+void stack_delete(stack** head) {
+    
 }
 
 void element_push(stack** head, int info) {
@@ -18,6 +40,10 @@ void element_push(stack** head, int info) {
 }
 
 void element_pop(stack** head) {
+    if(stack_underflow(*head)) {
+        printf("stack is underflow\n");
+        return;
+    }
     stack* temp = *head;
     *head = temp->next;
     free(temp);
