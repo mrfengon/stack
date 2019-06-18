@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "funcs.h"
+#include "funcs.c"
 #include "stack.h"
 
 int main() {
@@ -8,8 +9,8 @@ int main() {
     scanf("%d", &info);
     stack* head;
     stack_init(&head, info);
-    while(temp != 5) {
-        printf("1 - push, 2 - pop, 3 - print stack, 4 - size, 5 - exit\n");
+    while(temp != 6) {
+        printf("1 - push, 2 - pop, 3 - print stack, 4 - size, 5 - delete stack, 6 - exit\n");
         scanf("%d", &temp);
         if(temp == 1) {
             printf("enter element info: ");
@@ -24,6 +25,9 @@ int main() {
         }
         else if(temp == 4) {
             printf("%d\n", stack_size(head));
+        }
+        else if(temp == 5) {
+            stack_delete(&head);
         }
         else {
             return 0;
