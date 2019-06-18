@@ -1,4 +1,4 @@
-#include "sort.c"
+#include "sort.h"
 
 int main() {
     int info, temp, temp_1;
@@ -70,7 +70,7 @@ int main() {
             }
         }
         else if(temp == 6) {
-            stack_concatenate(&head, &head_2);
+            stack_concatenate(&head, head_2);
         }
         else {
             return 0;
