@@ -18,7 +18,7 @@ void element_push(stack** head, int info) {
 }
 
 void element_pop(stack** head) {
-    stack* temp = * head;
+    stack* temp = *head;
     *head = temp->next;
     free(temp);
 }
