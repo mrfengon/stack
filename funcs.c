@@ -11,8 +11,8 @@ bool stack_underflow(stack* head) {
     return (head == NULL);
 }
 
-size_t stack_size(stack* head) {
-    size_t size = 0;
+int stack_size(stack* head) {
+    int size = 0;
     stack* temp = head;
     while(temp->next != NULL) {
         size++;
