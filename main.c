@@ -7,7 +7,7 @@ int main() {
     stack* head;
     stack_init(&head, info);
     while(temp != 7) {
-        printf("0 - init, 1 - push, 2 - pop, 3 - print stack, 4 - size, 5 - delete stack, 6 - sort, 7 - exit\n");
+        printf("1 - push, 2 - pop, 3 - print stack, 4 - size, 5 - delete stack, 6 - sort, 7 - exit\n");
         scanf("%d", &temp);
         if(temp == 1) {
             printf("enter element info: ");
