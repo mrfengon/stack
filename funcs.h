@@ -7,7 +7,7 @@
 #include "stack.h"
 
 void stack_init(stack** head, int info);
-bool stack_underflow(stack* head);
+bool stack_empty(stack* head);
 int stack_size(stack* head);
 void stack_delete(stack** head);
 void element_push(stack** head, int info);

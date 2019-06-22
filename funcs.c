@@ -7,45 +7,40 @@ void stack_init(stack** head, int info) {
     *head = temp;
 }
 
-bool stack_underflow(stack* head) {
+bool stack_empty(stack* head) {
     return (head == NULL);
 }
 
 int stack_size(stack* head) {
-    int size = 0;
-    stack* temp = head;
-    while(temp->next != NULL) {
-        size++;
-        temp = temp->next;
+    if (head == NULL) {
+        return 0;
     }
-    if(temp->next == NULL) {
+    int size = 1;
+    while(head != NULL && head->next != NULL) {
         size++;
+        head = head->next;
     }
     return size;
 }
 
 void stack_delete(stack** head) {
-    while(*head != NULL) {
+    while(!stack_empty(*head)) {
         *head = element_pop(head);
-        stack_delete(head);
     }
-    if(head == NULL) {
-        printf("stack is deleted\n");
-        return;
-    }
+    printf("stack is deleted\n");
 }
 
 void element_push(stack** head, int info) {
-    stack* new_head = (stack*)(malloc(sizeof(stack*)));
+    stack* new_head = (stack*)(malloc(sizeof(stack)));
     new_head->info = info;
     new_head->next = *head;
     *head = new_head;
 }
 
 stack* element_pop(stack** head) {
-    if(stack_underflow(*head)) {
-        printf("stack is underflow\n");
-        return 0;
+    if(stack_empty(*head)) {
+        printf("stack is empty\n");
+        return NULL;
     }
     stack* temp = *head;
     *head = temp->next;
@@ -59,7 +54,7 @@ void stack_print(stack* head) {
         printf("%d, ", temp->info);
         temp = temp->next;
     }
-    if(temp->next == NULL) {
+    if(temp != NULL && temp->next == NULL) {
         printf("%d\n", temp->info);
         return;
     }
