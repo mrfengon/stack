@@ -3,7 +3,7 @@
 
 typedef struct stack {
     int info;
-    stack* next;
+    struct stack* next;
 } stack;
 
 #endif

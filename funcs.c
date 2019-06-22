@@ -55,7 +55,7 @@ stack* element_pop(stack** head) {
 
 void stack_print(stack* head) {
     stack* temp = head;
-    while(temp->next != NULL) {
+    while(temp != NULL && temp->next != NULL) {
         printf("%d, ", temp->info);
         temp = temp->next;
     }
