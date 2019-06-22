@@ -2,20 +2,21 @@ CC = gcc
 
 CCFLAGS = -g
 
-OBJ = main.o sort.o funcs.o
+OBJ = funcs.o sort.o main.o
 
 .SUFFIXES: .c .o
 
 main: $(OBJ)
-	@$(CC) $(CCFLAGS) -o main $(OBJ)
+	@$(CC) $(CCFLAGS) $(OBJ) -o main
 
-main.o: main.c sort.h
+main.o: funcs.o sort.o
+	$(CC) -c $(CCFLAGS) main.c
 
-funcs.o: funcs.h
+funcs.o: funcs.h stack.h funcs.c
+	$(CC) -c $(CCFLAGS) funcs.c
 
-funcs.c: funcs.h
-
-sort.c: sort.h
+sort.o: funcs.o sort.c
+	$(CC) -c $(CCFLAGS) sort.c
 
 clean:
-	@rm -r *.o main
+	@rm -f *.o *.gch main
